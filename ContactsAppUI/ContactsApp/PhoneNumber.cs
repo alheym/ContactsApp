@@ -14,7 +14,7 @@ namespace ContactsApp
     {
         private long _number;
       
-        /// <summary>
+        /// <summary> 
         /// Возвращает и задает номер телефона.
         /// </summary>
         public long Number
