@@ -19,7 +19,6 @@ namespace ContactsAppUI
         }
 
         private Contact _contact = new Contact();
-
         public Contact ContactData => _contact;
 
         /// <summary>
@@ -41,7 +40,13 @@ namespace ContactsAppUI
                 SurnameTextBox.Focus();
                 return false;
             }
-
+            catch (ArgumentException e)
+            {
+                MessageBox.Show(e.Message, "Add Contact Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SurnameTextBox.Focus();
+                return false;
+            }
 
             //TryCatch Name
             try
@@ -56,6 +61,14 @@ namespace ContactsAppUI
                 NameTextBox.Focus();
                 return false;
             }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show(e.Message, "Add Contact Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NameTextBox.Focus();
+                return false;
+            }
+
 
 
             //TryCatch Birhday
@@ -86,6 +99,13 @@ namespace ContactsAppUI
                 PhoneTextBox.Focus();
                 return false;
             }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show(e.Message, "Add Contact Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PhoneTextBox.Focus();
+                return false;
+            }
 
 
             //TryCatch Email
@@ -95,6 +115,13 @@ namespace ContactsAppUI
 
             }
 
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show(e.Message, "Add Contact Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                EmailTextBox.Focus();
+                return false;
+            }
             catch (ArgumentException e)
             {
                 MessageBox.Show(e.Message, "Add Contact Error",
@@ -110,6 +137,13 @@ namespace ContactsAppUI
 
             }
             catch (ArgumentNullException e)
+            {
+                MessageBox.Show(e.Message, "Add Contact Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                VKTextBox.Focus();
+                return false;
+            }
+            catch (ArgumentException e)
             {
                 MessageBox.Show(e.Message, "Add Contact Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -195,6 +229,7 @@ namespace ContactsAppUI
                 {
                     PhoneTextBox.BackColor = Color.LightSalmon;
                 }
+               
             }
         }
 

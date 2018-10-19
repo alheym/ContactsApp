@@ -27,8 +27,8 @@ namespace ContactsAppUI
             //this.Text = "Главное окно программы";
             //this.Size = new Size(400, 250);
             ProjectManager.GetInstance().LoadFile(_project, string.Empty); // Вызов метода
-                                                                           //   var phone = new PhoneNumber
-                                                                           //    {
+            //   var phone = new PhoneNumber
+            //    {
 
             //    };
             //ProjectManager.GetInstance().Project.Contact.Add(

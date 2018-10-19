@@ -31,7 +31,7 @@ namespace ContactsApp
             {
                 if (value == string.Empty)
                 {
-                    throw new ArgumentNullException("Filed 'Surname' can't be empty");
+                    throw new ArgumentNullException("Поле 'Surname' не может быть пустым");
                 }
                 else if (value.Length > 50)
                 {
@@ -53,7 +53,7 @@ namespace ContactsApp
             {
                 if (value == string.Empty)
                 {
-                    throw new ArgumentNullException("Field 'Name' can't be empty");
+                    throw new ArgumentNullException("Поле 'Name' не может быть пустым");
                 }
                 else if (value.Length > 50)
                 {
@@ -91,7 +91,7 @@ namespace ContactsApp
             {
                 if (value == string.Empty)
                 {
-                    throw new ArgumentNullException("Filed 'Email' can't be empty");
+                    throw new ArgumentNullException("Поле 'Email' не может быть пустым");
                 }
                 else if (value.Length > 50)
                 {
@@ -112,7 +112,7 @@ namespace ContactsApp
             {
                 if (value == string.Empty)
                 {
-                    throw new ArgumentNullException("Filed 'VK' cant't be empty");
+                    throw new ArgumentNullException("Поле 'VK' не может быть пустым");
                 }
                 else if (value.Length > 15)
                 {
