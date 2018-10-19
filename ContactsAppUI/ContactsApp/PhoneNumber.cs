@@ -13,6 +13,10 @@ namespace ContactsApp
     public class PhoneNumber
     {
         private long _number;
+      
+        /// <summary>
+        /// Возвращает и задает номер телефона.
+        /// </summary>
         public long Number
         {
             get => _number;
@@ -26,13 +30,14 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Длина номера телефона должна быть меньше 11, а была " + value.ToString().Length);
                 }
-                else if (value.ToString()[0] != '7')
-                {
-                    throw new FormatException("Номер телефона должен начинаться с 7, а начинаетсся с " + value.ToString()[0]);
-                }
-                else
+
                     _number = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return "+" + _number.ToString("0 000 000 0000");
         }
     }
 }

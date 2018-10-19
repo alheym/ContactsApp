@@ -10,33 +10,20 @@ namespace ContactsApp
     /// Класс контакта, хранящий информацию о номере телефона, имени, фамилии,
     /// email и id vk пользователя.
     /// </summary>
-    public class Contacts
+    public class Contact
+
     {
-        private long _phoneNumber;
-        public long PhoneNumber
-        {
-            get => _phoneNumber;
-            set
-            {
-                if (value.ToString() == string.Empty)
-                {
-                    throw new ArgumentNullException("Field 'PhoneNumber' can't be empty");
-                }
-                else if (value.ToString().Length > 11)
-                {
-                    throw new ArgumentException("Длина номера телефона должна быть меньше 11, а была " + value.ToString().Length);
-                }
-                else if (value.ToString()[0] != '7')
-                {
-                    throw new FormatException("Номер телефона должен начинаться с 7, а начинаетсся с " + value.ToString()[0]);
-                }
-                else
-                    _phoneNumber = value;
-            }
-            
-        }
+        public PhoneNumber Number { get; set; } = new PhoneNumber();
 
         private string _surname;
+        private string _name;
+        private DateTime _birhday;
+        private string _email;
+        private string _vk;
+
+        /// <summary>
+        /// Возвращает и задает фамилию контакта.
+        /// </summary>
         public string Surname
         {
             get => _surname;
@@ -56,7 +43,9 @@ namespace ContactsApp
 
         }
 
-        private string _name;
+        /// <summary>
+        /// Возвращает и задает имя контакта.
+        /// </summary>
         public string Name
         {
             get => _name;
@@ -75,10 +64,12 @@ namespace ContactsApp
             }
         }
 
-        private DateTime _date;
-        public DateTime DateofBirhday
+        /// <summary>
+        /// Возвращает и задает дату рождения контакта.
+        /// </summary>
+        public DateTime Birhday
         {
-            get => _date;
+            get => _birhday;
             set
             {
                 if (value > DateTime.Today)
@@ -86,11 +77,13 @@ namespace ContactsApp
                     throw new ArgumentException("Дата не должна быть больше " + DateTime.Today.ToShortDateString() + ", а была " + value.Date.ToShortDateString());
                 }
                 else
-                    _date = value;
+                    _birhday = value;
             }
         }
 
-        private string _email;
+        /// <summary>
+        /// Возвращает и задает email контакта.
+        /// </summary>
         public string Email
         {
             get => _email;
@@ -109,7 +102,9 @@ namespace ContactsApp
             }
         }
 
-        private string _vk;
+        /// <summary>
+        /// Возвращает и задает id вконтакте.
+        /// </summary>
         public string VK
         {
             get => _vk;

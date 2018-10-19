@@ -6,6 +6,9 @@ namespace ContactsApp
 {
     public class ProjectManager
     {
+        /// <summary>
+        /// https://metanit.com/sharp/patterns/2.3.php
+        /// </summary>
         private static ProjectManager _project;
 
         public Project Project { get; set; } = new Project();
@@ -19,7 +22,7 @@ namespace ContactsApp
             return _project;
         }
 
-        public void SaveFile()
+        public void SaveFile(Project _project, string fileName)
         {
             // создаем экземляр сериализатора
             //JsonSerializer serializer = new JsonSerializer();
@@ -34,14 +37,18 @@ namespace ContactsApp
             //    }
 
             //}
-            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json", Newtonsoft.Json.JsonConvert.SerializeObject(_project));
+            File.WriteAllText(
+                AppDomain.CurrentDomain.BaseDirectory + "project.json", 
+                Newtonsoft.Json.JsonConvert.SerializeObject(_project));
         }
 
-        public void LoadFile()
+
+
+        public void LoadFile(Project _project, string empty)
         {
             if(File.Exists(AppDomain.CurrentDomain.BaseDirectory + "project.json"))
             {
-                _project = JsonConvert.DeserializeObject<ProjectManager>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json"));
+                _project = JsonConvert.DeserializeObject<Project>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json"));
             }
         //JsonSerializer serializer = new JsonSerializer();
         //using (StreamReader sr = new StreamReader(filePath))
