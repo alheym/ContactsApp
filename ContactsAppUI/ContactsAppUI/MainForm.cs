@@ -11,24 +11,18 @@ using System.Windows.Forms;
 
 namespace ContactsAppUI
 {
-    public partial class MainForm : Form
+    public partial class FormMain1 : Form
     {
         private bool _isProjectChanged = false;
 
-        /// <summary>
-        /// Объявление нового экземпляра списка
-        /// </summary>
-        private Project _project = new Project();
-        private ProjectManager _projectManager = new ProjectManager();
 
-        public MainForm()
+        public FormMain1()
         {
             InitializeComponent();
             //this.Text = "Главное окно программы";
             //this.Size = new Size(400, 250);
-            ProjectManager.GetInstance().LoadFile(_project, string.Empty); // Вызов метода
-            //   var phone = new PhoneNumber
-            //    {
+            ProjectManager.GetInstance().LoadFile();
+            FillListView(ProjectManager.GetInstance().Project.Contact);            //    {
 
             //    };
             //ProjectManager.GetInstance().Project.Contact.Add(
@@ -185,12 +179,12 @@ namespace ContactsAppUI
         {
             if (ContactsList.SelectedIndices.Count != 0)
             {
-                SurnameTextBox.Text = _project.Contact[ContactsList.SelectedIndices[0]].Surname;
-                NameTextBox.Text = _project.Contact[ContactsList.SelectedIndices[0]].Name;
-                BirthdayDayTool.Value = _project.Contact[ContactsList.SelectedIndices[0]].Birhday;
-                PhoneTextBox.Text = Convert.ToString(_project.Contact[ContactsList.SelectedIndices[0]].Number.Number);
-                EmailTextBox.Text = _project.Contact[ContactsList.SelectedIndices[0]].Email;
-                VKTextBox.Text = _project.Contact[ContactsList.SelectedIndices[0]].VK;
+                SurnameTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Surname;
+                NameTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Name;
+                BirthdayDayTool.Value = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Birhday;
+                PhoneTextBox.Text = Convert.ToString(ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Number.Number);
+                EmailTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Email;
+                VKTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].VK;
             }
             else
             {
@@ -213,7 +207,7 @@ namespace ContactsAppUI
             addEditContactsForm addContact = new addEditContactsForm();
             if (addContact.ShowDialog() == DialogResult.OK)
             {
-                _project.Contact.Add(addContact.ContactData);
+                ProjectManager.GetInstance().Project.Contact.Add(addContact.ContactData);
                 _isProjectChanged = true;
             }
 
@@ -228,12 +222,12 @@ namespace ContactsAppUI
         {
             int index = ContactsList.SelectedIndices[0];
             addEditContactsForm editContact = new addEditContactsForm();
-            editContact.ContactView(_project.Contact[index]);
+            editContact.ContactView(ProjectManager.GetInstance().Project.Contact[index]);
             if (editContact.ShowDialog() == DialogResult.OK)
             {
-                _project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().Project.Contact.RemoveAt(index);
                 ContactsList.Items[index].Remove();
-                _project.Contact.Insert(index, editContact.ContactData);
+                ProjectManager.GetInstance().Project.Contact.Insert(index, editContact.ContactData);
                 _isProjectChanged = true;
             }
 
@@ -246,15 +240,7 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void RemoveContactButton_Click(object sender, EventArgs e)
         {
-            DialogResult _dialogResult = MessageBox.Show("Вы действительно хотите удалить выбранный контакт?", "Remove Contact",
-      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (_dialogResult == DialogResult.Yes)
-            {
-                int index = ContactsList.SelectedIndices[0];
-                _project.Contact.RemoveAt(index);
-                ContactsList.Items[index].Remove();
-                _isProjectChanged = true;
-            }
+
         }
 
         private void PhoneTextBox_TextChanged(object sender, EventArgs e)
@@ -279,7 +265,8 @@ namespace ContactsAppUI
             if (_dialogResult == DialogResult.Yes)
             {
                 int index = ContactsList.SelectedIndices[0];
-                _project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().Project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().SaveFile();
                 ContactsList.Items[index].Remove();
                 _isProjectChanged = true;
             }
@@ -345,10 +332,11 @@ namespace ContactsAppUI
             addEditContactsForm addContact = new addEditContactsForm();
             if (addContact.ShowDialog() == DialogResult.OK)
             {
-                _project.Contact.Add(addContact.ContactData);
+                ProjectManager.GetInstance().Project.Contact.Add(addContact.ContactData);
+                ProjectManager.GetInstance().SaveFile();
                 _isProjectChanged = true;
             }
-            FillListView(_project.Contact);
+            FillListView(ProjectManager.GetInstance().Project.Contact);
         }
 
         /// <summary>
@@ -360,15 +348,16 @@ namespace ContactsAppUI
         {
             int index = ContactsList.SelectedIndices[0];
             addEditContactsForm editContact = new addEditContactsForm();
-            editContact.ContactView(_project.Contact[index]);
+            editContact.ContactView(ProjectManager.GetInstance().Project.Contact[index]);
             if (editContact.ShowDialog() == DialogResult.OK)
             {
-                _project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().Project.Contact.RemoveAt(index);
                 ContactsList.Items[index].Remove();
-                _project.Contact.Insert(index, editContact.ContactData);
+                ProjectManager.GetInstance().Project.Contact.Insert(index, editContact.ContactData);
                 _isProjectChanged = true;
+                ProjectManager.GetInstance().SaveFile();
             }
-            FillListView(_project.Contact);
+            FillListView(ProjectManager.GetInstance().Project.Contact);
         }
     }
     }

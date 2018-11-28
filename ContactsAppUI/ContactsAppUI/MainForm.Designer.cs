@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class MainForm
+    partial class FormMain1
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain1));
             this.contactsLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edit = new System.Windows.Forms.ToolStripMenuItem();
             this.addContact = new System.Windows.Forms.ToolStripMenuItem();
             this.EditContact = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +77,7 @@
             // 
             this.contactsLabel.AutoSize = true;
             this.contactsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactsLabel.Location = new System.Drawing.Point(0, 28);
+            this.contactsLabel.Location = new System.Drawing.Point(0, 27);
             this.contactsLabel.Name = "contactsLabel";
             this.contactsLabel.Size = new System.Drawing.Size(0, 22);
             this.contactsLabel.TabIndex = 0;
@@ -90,7 +91,7 @@
             this.help});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(757, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(757, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,10 +99,11 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.exit});
+            this.exit,
+            this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Tempus Sans ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // toolStripSeparator1
@@ -117,6 +119,12 @@
             this.exit.Text = "Exit";
             this.exit.Click += new System.EventHandler(this.Exit_Click_1);
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
             // edit
             // 
             this.edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -125,29 +133,29 @@
             this.removeContact});
             this.edit.Font = new System.Drawing.Font("Tempus Sans ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(46, 24);
+            this.edit.Size = new System.Drawing.Size(46, 23);
             this.edit.Text = "Edit";
             this.edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // addContact
             // 
             this.addContact.Name = "addContact";
-            this.addContact.Size = new System.Drawing.Size(190, 26);
+            this.addContact.Size = new System.Drawing.Size(165, 26);
             this.addContact.Text = "Add Contact";
             this.addContact.Click += new System.EventHandler(this.addContact_Click);
             // 
             // EditContact
             // 
             this.EditContact.Name = "EditContact";
-            this.EditContact.Size = new System.Drawing.Size(190, 26);
+            this.EditContact.Size = new System.Drawing.Size(165, 26);
             this.EditContact.Text = "Edit Contact";
             this.EditContact.Click += new System.EventHandler(this.EditContact_Click);
             // 
             // removeContact
             // 
             this.removeContact.Name = "removeContact";
-            this.removeContact.Size = new System.Drawing.Size(190, 26);
-            this.removeContact.Text = "Remove Contact";
+            this.removeContact.Size = new System.Drawing.Size(165, 26);
+            this.removeContact.Text = "2";
             this.removeContact.Click += new System.EventHandler(this.RemoveContact_Click);
             // 
             // help
@@ -156,7 +164,7 @@
             this.about});
             this.help.Font = new System.Drawing.Font("Tempus Sans ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(52, 24);
+            this.help.Size = new System.Drawing.Size(52, 23);
             this.help.Text = "Help";
             this.help.Click += new System.EventHandler(this.help_Click);
             // 
@@ -164,7 +172,7 @@
             // 
             this.about.Name = "about";
             this.about.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.about.Size = new System.Drawing.Size(216, 26);
+            this.about.Size = new System.Drawing.Size(148, 26);
             this.about.Text = "About";
             this.about.Click += new System.EventHandler(this.About_Click);
             // 
@@ -207,7 +215,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 27);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -239,7 +247,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.Name);
             this.splitContainer1.Panel2.Controls.Add(this.Surname);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(757, 499);
+            this.splitContainer1.Size = new System.Drawing.Size(757, 500);
             this.splitContainer1.SplitterDistance = 251;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -253,7 +261,7 @@
             this.ContactsList.Location = new System.Drawing.Point(17, 47);
             this.ContactsList.Margin = new System.Windows.Forms.Padding(4);
             this.ContactsList.Name = "ContactsList";
-            this.ContactsList.Size = new System.Drawing.Size(230, 379);
+            this.ContactsList.Size = new System.Drawing.Size(230, 382);
             this.ContactsList.TabIndex = 50;
             this.ContactsList.UseCompatibleStateImageBehavior = false;
             this.ContactsList.View = System.Windows.Forms.View.Details;
@@ -270,12 +278,12 @@
             this.RemoveContactButton.FlatAppearance.BorderSize = 0;
             this.RemoveContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveContactButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveContactButton.Image")));
-            this.RemoveContactButton.Location = new System.Drawing.Point(191, 445);
+            this.RemoveContactButton.Location = new System.Drawing.Point(191, 448);
             this.RemoveContactButton.Name = "RemoveContactButton";
             this.RemoveContactButton.Size = new System.Drawing.Size(41, 41);
             this.RemoveContactButton.TabIndex = 49;
             this.RemoveContactButton.UseVisualStyleBackColor = false;
-            this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContactButton_Click);
+            this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContact_Click);
             // 
             // EditContactButton
             // 
@@ -283,7 +291,7 @@
             this.EditContactButton.FlatAppearance.BorderSize = 0;
             this.EditContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditContactButton.Image = ((System.Drawing.Image)(resources.GetObject("EditContactButton.Image")));
-            this.EditContactButton.Location = new System.Drawing.Point(144, 445);
+            this.EditContactButton.Location = new System.Drawing.Point(144, 448);
             this.EditContactButton.Name = "EditContactButton";
             this.EditContactButton.Size = new System.Drawing.Size(41, 41);
             this.EditContactButton.TabIndex = 48;
@@ -296,7 +304,7 @@
             this.addContactButton.FlatAppearance.BorderSize = 0;
             this.addContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addContactButton.Image = ((System.Drawing.Image)(resources.GetObject("addContactButton.Image")));
-            this.addContactButton.Location = new System.Drawing.Point(97, 445);
+            this.addContactButton.Location = new System.Drawing.Point(97, 448);
             this.addContactButton.Name = "addContactButton";
             this.addContactButton.Size = new System.Drawing.Size(41, 41);
             this.addContactButton.TabIndex = 47;
@@ -483,7 +491,7 @@
             this.Surname.Text = "Surname:";
             this.Surname.Click += new System.EventHandler(this.Surname_Click);
             // 
-            // MainForm
+            // FormMain1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -496,7 +504,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MinimumSize = new System.Drawing.Size(600, 500);
-           // this.Name = "MainForm";
+            this.Name = "FormMain1";
             this.Text = "ContactsApp";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -550,6 +558,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exit;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

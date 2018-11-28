@@ -22,7 +22,7 @@ namespace ContactsApp
             return _project;
         }
 
-        public void SaveFile(Project _project, string fileName)
+        public void SaveFile()
         {
             // создаем экземляр сериализатора
             //JsonSerializer serializer = new JsonSerializer();
@@ -38,17 +38,17 @@ namespace ContactsApp
 
             //}
             File.WriteAllText(
-                AppDomain.CurrentDomain.BaseDirectory + "project.json", 
-                Newtonsoft.Json.JsonConvert.SerializeObject(_project));
+                AppDomain.CurrentDomain.BaseDirectory + "\\project.json", 
+                Newtonsoft.Json.JsonConvert.SerializeObject(Project));
         }
 
 
 
-        public void LoadFile(Project _project, string empty)
+        public void LoadFile()
         {
-            if(File.Exists(AppDomain.CurrentDomain.BaseDirectory + "project.json"))
+            if(File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\project.json"))
             {
-                _project = JsonConvert.DeserializeObject<Project>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json"));
+                Project = JsonConvert.DeserializeObject<Project>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json"));
             }
         //JsonSerializer serializer = new JsonSerializer();
         //using (StreamReader sr = new StreamReader(filePath))

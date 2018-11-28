@@ -182,7 +182,7 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
-            if (CheckCorrectInput() == true)
+            if (CheckCorrectInput())
             {
                 DialogResult = DialogResult.OK;
                 this.Close();
