@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class FormMain1
+    partial class MainContacts
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainContacts));
             this.contactsLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +64,7 @@
             this.Email = new System.Windows.Forms.Label();
             this.Phone = new System.Windows.Forms.Label();
             this.Birthday = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
+            this.NamePerson = new System.Windows.Forms.Label();
             this.Surname = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -244,7 +244,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.Email);
             this.splitContainer1.Panel2.Controls.Add(this.Phone);
             this.splitContainer1.Panel2.Controls.Add(this.Birthday);
-            this.splitContainer1.Panel2.Controls.Add(this.Name);
+            this.splitContainer1.Panel2.Controls.Add(this.NamePerson);
             this.splitContainer1.Panel2.Controls.Add(this.Surname);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(757, 500);
@@ -467,17 +467,17 @@
             this.Birthday.Text = "Birthday:";
             this.Birthday.Click += new System.EventHandler(this.Birthday_Click);
             // 
-            // Name
+            // NamePerson
             // 
-            this.Name.AutoSize = true;
-            this.Name.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name.Location = new System.Drawing.Point(30, 50);
-            this.Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(58, 22);
-            this.Name.TabIndex = 43;
-            this.Name.Text = "Name:";
-            this.Name.Click += new System.EventHandler(this.Name_Click);
+            this.NamePerson.AutoSize = true;
+            this.NamePerson.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NamePerson.Location = new System.Drawing.Point(30, 50);
+            this.NamePerson.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NamePerson.Name = "NamePerson";
+            this.NamePerson.Size = new System.Drawing.Size(58, 22);
+            this.NamePerson.TabIndex = 43;
+            this.NamePerson.Text = "Name:";
+            this.NamePerson.Click += new System.EventHandler(this.Name_Click);
             // 
             // Surname
             // 
@@ -491,7 +491,7 @@
             this.Surname.Text = "Surname:";
             this.Surname.Click += new System.EventHandler(this.Surname_Click);
             // 
-            // FormMain1
+            // MainContacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -504,7 +504,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MinimumSize = new System.Drawing.Size(600, 500);
-            this.Name = "FormMain1";
+            this.Name = "MainContacts";
             this.Text = "ContactsApp";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -544,7 +544,7 @@
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.Label Phone;
         private System.Windows.Forms.Label Birthday;
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label NamePerson;
         private System.Windows.Forms.Label Surname;
         private System.Windows.Forms.Button RemoveContactButton;
         private System.Windows.Forms.Button EditContactButton;

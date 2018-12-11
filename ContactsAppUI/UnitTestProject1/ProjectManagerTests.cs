@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ContactsApp;
+using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,43 +10,34 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Tests
 {
-    [TestClass()]
-    public class ProjectManagerTests
-    {
-        [TestMethod()]
-        public void SaveFileTest()
-        {
-            throw new NotImplementedException();
-        }
+    //[TestFixture]
+    //public class ProjectManagerTest
+    //{
+        
 
-        [TestMethod()]
-        public void LoadFileTest()
-        {
-            throw new NotImplementedException();
-        }
+    //    [Test(Description = "Позитивный тест сериализации. Сохранение")]
+    //    public void TestProjectManagerSaveTToFile_CorrectValue()
+    //    {
 
-        public bool PublicInstancePropertiesEqual<T>(T self, T to, params string[] ignore) where T : class
-        {
-            if (self != null && to != null)
-            {
-                Type type = typeof(T);
-                List<string> ignoreList = new List<string>(ignore);
-                foreach (System.Reflection.PropertyInfo pi in type.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
-                {
-                    if (!ignoreList.Contains(pi.Name))
-                    {
-                        object selfValue = type.GetProperty(pi.Name).GetValue(self, null);
-                        object toValue = type.GetProperty(pi.Name).GetValue(to, null);
+    //        Contact contact = new Contact
+    //        {
+    //            Name = "Имя",
+    //            Surname = "Фамилия",
+    //            Birhday = new DateTime(1999, 05, 12),
+    //            Email = "meow@gmail.com",
+    //            VK = "id@meow"
+    //        };
 
-                        if (selfValue != toValue && (selfValue == null || !selfValue.Equals(toValue)))
-                        {
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-            return self == to;
-        }
-    }
+    //        var project = new Project();
+    //        project.Contact.Add(contact);
+    //        ProjectManager.SaveFile(project);
+
+    //        var actual = ProjectManager.LoadFile(project).Contact.Last();
+    //        Assert.AreEqual(contact, actual.Text);
+
+        
+    //    }
+        
+
+    //}
 }

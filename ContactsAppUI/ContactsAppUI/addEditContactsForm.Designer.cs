@@ -272,7 +272,7 @@
             this.AcceptButton = this.OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
+            //this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(763, 315);
             this.Controls.Add(this.toolStripContainer1);
             this.HelpButton = true;
@@ -304,7 +304,7 @@
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label SubnameLabebl;
         private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox PhoneTextBox;

@@ -14,30 +14,25 @@ namespace ContactsApp
     {
         private long _number;
       
-        /// <summary> 
-        /// Возвращает и задает номер телефона.
-        /// </summary>
+             /// <summary>
+             /// Свойство номера телефона
+             /// </summary>
         public long Number
         {
             get => _number;
             set
             {
-                if (value.ToString() == string.Empty)
+                var str = value.ToString();
+                if (str[0] != '7')
                 {
-                    throw new ArgumentNullException("Field 'Number' can't be empty");
+                    throw new FormatException("Номер телефона должен начинаться с 7, а начинается с " + str[0]);
                 }
-                else if (value.ToString().Length > 11)
+                else if (value < 70000000000 | value > 79999999999)
                 {
-                    throw new ArgumentException("Длина номера телефона должна быть меньше 11, а была " + value.ToString().Length);
+                    throw new ArgumentException("Длина номера телефона должна быть ровно 11 символов, а был " + str.Length);
                 }
-
-                    _number = value;
+                _number = value;
             }
-        }
-
-        public override string ToString()
-        {
-            return "+" + _number.ToString("0 000 000 0000");
         }
     }
 }

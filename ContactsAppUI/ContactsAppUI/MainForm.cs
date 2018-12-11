@@ -11,43 +11,21 @@ using System.Windows.Forms;
 
 namespace ContactsAppUI
 {
-    public partial class FormMain1 : Form
+    public partial class MainContacts : Form
     {
         private bool _isProjectChanged = false;
 
 
-        public FormMain1()
+        public MainContacts()
         {
             InitializeComponent();
-            //this.Text = "Главное окно программы";
-            //this.Size = new Size(400, 250);
+            
             ProjectManager.GetInstance().LoadFile();
-            FillListView(ProjectManager.GetInstance().Project.Contact);            //    {
+            FillListView(ProjectManager.GetInstance().Project.Contact);         
 
-            //    };
-            //ProjectManager.GetInstance().Project.Contact.Add(
-            //      new Contact()  // Создание экземпляра класса из модели
-            //          {
-            //          ////              Email = "test@test.ru",
-            //          ////              VK = "vk.com",
-            //          ////              Name = "test",
-            //          ////              Number = phone,
-            //          ////              Surname = "Test"
-            //      });
-            // //  ViewContacts(ProjectManager.GetInstance().Project.Contact);
-            //   ProjectManager.GetInstance().SaveFile();
+           
         }
 
-        //private void ViewContacts(List<Contact> list)
-        //{
-        //    int i = 1;
-        //    foreach (var contact in list)
-        //    {
-        //        contactsLabel.Text += string.Format("{0})\t{1} {2}\t{3}\t{4}\t{5}",
-        //            i, contact.Name, contact.Surname, contact.Email, contact.Number.ToString(), contact.VK);
-        //        contactsLabel.Text += Environment.NewLine;
-        //    }
-        //}
 
         /// <summary>
         /// Заполнить список контактов. Если в списке уже есть данные (список ранее был заполнен),
@@ -301,25 +279,9 @@ namespace ContactsAppUI
 
         private void Exit_Click_1(object sender, EventArgs e)
         {
-           // DialogResult dialogResult;
+         
             if (_isProjectChanged != true | ContactsList.Items.Count == 0)
                 this.Close();
-            //else
-            //{
-            //    dialogResult = MessageBox.Show("Имеются не сохраненные данные. Хотите сохранить их?",
-            //        "Save befor exit",
-            //        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        SaveAs_Click(sender, e);
-            //    }
-            //    else
-            //    {
-            //        this.Close();
-            //    }
-            //}
         }
 
         /// <summary>

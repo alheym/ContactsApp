@@ -24,19 +24,7 @@ namespace ContactsApp
 
         public void SaveFile()
         {
-            // создаем экземляр сериализатора
-            //JsonSerializer serializer = new JsonSerializer();
-
-            //{
-            //    // открываем поток для записи в файл с указанием пути
-            //    using (StreamWriter sw = new StreamWriter(filePath))
-            //    using (JsonWriter writer = new JsonTextWriter(sw))
-            //    {
-            //        //вызываем сериализацию и передаем объект, который хотим сериализовать
-            //        serializer.Serialize(writer, _project);
-            //    }
-
-            //}
+            
             File.WriteAllText(
                 AppDomain.CurrentDomain.BaseDirectory + "\\project.json", 
                 Newtonsoft.Json.JsonConvert.SerializeObject(Project));
@@ -50,13 +38,17 @@ namespace ContactsApp
             {
                 Project = JsonConvert.DeserializeObject<Project>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json"));
             }
-        //JsonSerializer serializer = new JsonSerializer();
-        //using (StreamReader sr = new StreamReader(filePath))
-        //using (JsonReader reader = new JsonTextReader(sr))
-        //    { 
-        //    project = (serializer.Deserialize<Project>(reader));
-        //    return project;
-        //    }
+       
+        }
+
+        public static object LoadFile(Project project)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void SaveFile(Project project)
+        {
+            throw new NotImplementedException();
         }
     } 
 }

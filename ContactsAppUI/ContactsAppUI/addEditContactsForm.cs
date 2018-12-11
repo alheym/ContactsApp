@@ -215,11 +215,30 @@ namespace ContactsAppUI
             }
         }
 
-        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Проверка ввода только цифр
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Метод проверки ввода номера телефона
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ex"></param>
+        private void PhoneTextBox_TextChanged(object sender, EventArgs ex)
         {
             string text = PhoneTextBox.Text;
-            long number;
-            if (long.TryParse(text, out number))
+            if (long.TryParse(text, out long number))
             {
                 if (number >= 70000000000 && number <= 79999999999 && text.Length != 0)
                 {
@@ -229,9 +248,13 @@ namespace ContactsAppUI
                 {
                     PhoneTextBox.BackColor = Color.LightSalmon;
                 }
-               
+
             }
+            
+
         }
+
+
 
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
