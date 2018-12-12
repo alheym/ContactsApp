@@ -164,17 +164,7 @@ namespace ContactsAppUI
             EmailTextBox.Text = contact.Email;
             VKTextBox.Text = contact.VK;
         }
-
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addEditContactsForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+                
         /// <summary>
         /// Кнопка ОК. Выполняется проверка на не пустые поля 
         /// </summary>

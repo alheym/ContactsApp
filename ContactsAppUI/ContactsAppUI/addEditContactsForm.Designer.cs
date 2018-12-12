@@ -68,7 +68,7 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.NameLabel);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.SubnameLabebl);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(763, 315);
-            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
+        
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -282,7 +282,7 @@
             this.MinimumSize = new System.Drawing.Size(740, 350);
             this.Name = "addEditContactsForm";
             this.Text = "Add/Edit Contact";
-            this.Load += new System.EventHandler(this.addEditContactsForm_Load);
+          
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);

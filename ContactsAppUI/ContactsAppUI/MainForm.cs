@@ -58,96 +58,6 @@ namespace ContactsAppUI
 
         }
 
-        private void SurnameTextbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void EmailTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Surname_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VKTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BirthdayDayTool_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SurnameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Email_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Phone_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Birthday_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Name_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FindTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Вывод выбранного контакта для просмотра
         /// </summary>
@@ -221,21 +131,7 @@ namespace ContactsAppUI
 
         }
 
-        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void file_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void RemoveContact_Click(object sender, EventArgs e)
         {
             DialogResult _dialogResult = MessageBox.Show("Вы действительно хотите удалить контакт?", "Remove Contact",
@@ -250,16 +146,7 @@ namespace ContactsAppUI
             }
         }
 
-        private void Find_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void help_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         /// <summary>
         /// Открыть окно About
         /// </summary>
@@ -271,11 +158,7 @@ namespace ContactsAppUI
             About.ShowDialog();
         }
 
-        private void Edit_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
 
         private void Exit_Click_1(object sender, EventArgs e)
         {

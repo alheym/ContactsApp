@@ -135,7 +135,6 @@
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(46, 23);
             this.edit.Text = "Edit";
-            this.edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // addContact
             // 
@@ -166,7 +165,6 @@
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(52, 23);
             this.help.Text = "Help";
-            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // about
             // 
@@ -228,7 +226,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.addContactButton);
             this.splitContainer1.Panel1.Controls.Add(this.FindTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.Find);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -246,7 +243,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.Birthday);
             this.splitContainer1.Panel2.Controls.Add(this.NamePerson);
             this.splitContainer1.Panel2.Controls.Add(this.Surname);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(757, 500);
             this.splitContainer1.SplitterDistance = 251;
             this.splitContainer1.TabIndex = 2;
@@ -319,7 +315,6 @@
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(156, 29);
             this.FindTextBox.TabIndex = 46;
-            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // Find
             // 
@@ -330,7 +325,6 @@
             this.Find.Size = new System.Drawing.Size(53, 26);
             this.Find.TabIndex = 45;
             this.Find.Text = "Find:";
-            this.Find.Click += new System.EventHandler(this.Find_Click);
             // 
             // PhoneTextBox
             // 
@@ -344,7 +338,6 @@
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(395, 30);
             this.PhoneTextBox.TabIndex = 51;
-            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
             // 
             // BirthdayDayTool
             // 
@@ -361,7 +354,6 @@
             this.BirthdayDayTool.Size = new System.Drawing.Size(136, 30);
             this.BirthdayDayTool.TabIndex = 50;
             this.BirthdayDayTool.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.BirthdayDayTool.ValueChanged += new System.EventHandler(this.BirthdayDayTool_ValueChanged);
             // 
             // VKTextBox
             // 
@@ -375,7 +367,6 @@
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(395, 30);
             this.VKTextBox.TabIndex = 45;
-            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
             // 
             // EmailTextBox
             // 
@@ -389,7 +380,6 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(395, 30);
             this.EmailTextBox.TabIndex = 46;
-            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // NameTextBox
             // 
@@ -403,7 +393,6 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(395, 30);
             this.NameTextBox.TabIndex = 48;
-            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // SurnameTextBox
             // 
@@ -417,7 +406,6 @@
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(396, 30);
             this.SurnameTextBox.TabIndex = 49;
-            this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
             // 
             // VK
             // 
@@ -429,7 +417,6 @@
             this.VK.Size = new System.Drawing.Size(67, 22);
             this.VK.TabIndex = 39;
             this.VK.Text = "vk.com:";
-            this.VK.Click += new System.EventHandler(this.VK_Click);
             // 
             // Email
             // 
@@ -441,7 +428,6 @@
             this.Email.Size = new System.Drawing.Size(61, 22);
             this.Email.TabIndex = 40;
             this.Email.Text = "E-mail:";
-            this.Email.Click += new System.EventHandler(this.Email_Click);
             // 
             // Phone
             // 
@@ -453,7 +439,6 @@
             this.Phone.Size = new System.Drawing.Size(60, 22);
             this.Phone.TabIndex = 41;
             this.Phone.Text = "Phone:";
-            this.Phone.Click += new System.EventHandler(this.Phone_Click);
             // 
             // Birthday
             // 
@@ -465,7 +450,6 @@
             this.Birthday.Size = new System.Drawing.Size(73, 22);
             this.Birthday.TabIndex = 42;
             this.Birthday.Text = "Birthday:";
-            this.Birthday.Click += new System.EventHandler(this.Birthday_Click);
             // 
             // NamePerson
             // 
@@ -477,7 +461,6 @@
             this.NamePerson.Size = new System.Drawing.Size(58, 22);
             this.NamePerson.TabIndex = 43;
             this.NamePerson.Text = "Name:";
-            this.NamePerson.Click += new System.EventHandler(this.Name_Click);
             // 
             // Surname
             // 
@@ -489,7 +472,6 @@
             this.Surname.Size = new System.Drawing.Size(77, 22);
             this.Surname.TabIndex = 44;
             this.Surname.Text = "Surname:";
-            this.Surname.Click += new System.EventHandler(this.Surname_Click);
             // 
             // MainContacts
             // 
