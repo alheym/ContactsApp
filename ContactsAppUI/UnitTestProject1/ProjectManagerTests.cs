@@ -52,7 +52,7 @@ namespace ContactsApp.Tests
         //    Assert.AreEqual(_contact.Contact[1].Email, _secondContact.Email, "Метод десериалузиет не правильную информацию(почтовый ящик второго контакта)");
         //    Assert.AreEqual(_contact.Contact[1].Birhday, _secondContact.Birhday, "Date incorrect!");
         //}
-
+   
         /// <summary>
         /// Позитивный тест сериализации
         /// </summary>
