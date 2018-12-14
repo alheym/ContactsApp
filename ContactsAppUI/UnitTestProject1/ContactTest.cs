@@ -56,7 +56,7 @@ namespace UnitTestProject1
             /// <param name="expected"></param>
             /// <param name="message"></param>
             [TestCase("2000.01.01", "Выполняется, если присвоение даты происходит коректно",
-                TestName = "Позитивый тесте геттера DateOfBirthday")]
+                TestName = "Позитивый тесте геттера Birhday")]
             public void TestDateGet_CorrectValue(DateTime expected, string message)
             {
             _contact.Birhday = expected;
@@ -79,12 +79,12 @@ namespace UnitTestProject1
             }
 
             /// <summary>
-            /// Позитивный тест Get VkID
+            /// Позитивный тест Get VK
             /// </summary>
             /// <param name="expected"></param>
             /// <param name="message"></param>
             [TestCase("id@meow", "Выполняется, если id Вконтакте удачно присваевается",
-                TestName = "Позитивный тест геттера Vk")]
+                TestName = "Позитивный тест геттера VK")]
             public void TestVkGet_CorrectValue(string expected, string message)
             {
             _contact.VK = expected;
