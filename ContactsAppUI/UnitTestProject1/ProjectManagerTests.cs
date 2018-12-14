@@ -53,6 +53,7 @@ namespace ContactsApp.Tests
         //    Assert.AreEqual(_contact.Contact[1].Birhday, _secondContact.Birhday, "Date incorrect!");
         //}
    
+
         /// <summary>
         /// Позитивный тест сериализации
         /// </summary>
