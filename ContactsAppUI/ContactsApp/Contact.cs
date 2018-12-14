@@ -15,10 +15,30 @@ namespace ContactsApp
     {
         public PhoneNumber Number { get; set; } = new PhoneNumber();
 
+        /// <summary>
+        /// Объект свойств фамилия
+        /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// Объект свойств имя
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Объект свойств даты рождения
+        /// </summary>
         private DateTime _birhday;
+
+
+        /// <summary>
+        /// Объект свойств почтовый ящик
+        /// </summary>
         private string _email;
+
+        /// <summary>
+        /// Объект свойств id вконтакте
+        /// </summary>
         private string _vk;
 
         /// <summary>
@@ -38,7 +58,8 @@ namespace ContactsApp
                     throw new ArgumentException("Длина фамилии должна быть менее 50, а была " + value.Length);
                 }
                 else
-                    _surname = value;
+                    //_surname = value;
+                _surname = Char.ToUpper(value[0]) + value.Substring(1);
             }
 
         }
@@ -60,7 +81,8 @@ namespace ContactsApp
                     throw new ArgumentException("Длина имени должна быть менее 50, а была " + value.Length);
                 }
                 else
-                    _name = value;
+                    //_name = value;
+                    _name = Char.ToUpper(value[0]) + value.Substring(1);
             }
         }
 
@@ -121,6 +143,22 @@ namespace ContactsApp
                 else
                     _vk = value;
             }
+        }
+
+        /// <summary>
+        /// Метод клонирования контакта
+        /// </summary>
+        /// <returns>Склонированный контакт</returns>
+        public object Clone()
+        {
+            Contact newContact = new Contact();
+            newContact.Name = Name;
+            newContact.Surname = Surname;
+            newContact.Number.Number = Number.Number;
+            newContact.Birhday = Birhday;
+            newContact.Email = Email;
+            newContact.VK = VK;
+            return newContact;
         }
     }
 }

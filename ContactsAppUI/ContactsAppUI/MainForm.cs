@@ -1,6 +1,8 @@
 ﻿using ContactsApp;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,27 +17,37 @@ namespace ContactsAppUI
     {
         private bool _isProjectChanged = false;
 
+        /// <summary>
+        /// Объявление нового экземпляра списка контактов
+        /// </summary>
+        private Project _project = new Project();
 
+        /// <summary>
+        /// Экземпляр списка контактов после поиска
+        /// </summary>
+        private readonly Project _projectForFind = new Project();
+
+        /// <summary>
+        /// Загрузка данных при запуске программы
+        /// </summary>
         public MainContacts()
         {
             InitializeComponent();
             
             ProjectManager.GetInstance().LoadFile();
             FillListView(ProjectManager.GetInstance().Project.Contact);         
-
-           
         }
-
 
         /// <summary>
         /// Заполнить список контактов. Если в списке уже есть данные (список ранее был заполнен),
         /// то список будет очищен и снова заполнен.
         /// </summary>
-        /// <param name="_contact">Список контактов</param>
-        public void FillListView(List<Contact> _contact)
+        /// <param name="contact">Список контактов</param>
+        public void FillListView(List<Contact> contacts)
         {
             if (ContactsList.Items.Count > 0) ContactsList.Items.Clear();
-            foreach (Contact contact in _contact)
+            contacts = _project.SortContact(contacts);
+            foreach (Contact contact in contacts)
             {
                 AddNewClient(contact);
             }
@@ -49,8 +61,9 @@ namespace ContactsAppUI
         /// <param name="contact">Контакт</param>
         public void AddNewClient(Contact contact)
         {
-            int index = ContactsList.Items.Add(contact.Surname).Index;
-            ContactsList.Items[index].Tag = contact; //свойство Tag теперь ссылается на клиента, пригодится при удалении из списка и редактировании
+            string contactSurnameAndName = contact.Surname + " " + contact.Name;
+            int index = ContactsList.Items.Add(contactSurnameAndName).Index;
+            ContactsList.Items[index].Tag = contact; 
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -65,6 +78,8 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void ContactsList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var project = (FindTextBox.Text == string.Empty) ? _project : _projectForFind;
+
             if (ContactsList.SelectedIndices.Count != 0)
             {
                 SurnameTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Surname;
@@ -126,12 +141,6 @@ namespace ContactsAppUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RemoveContactButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
         private void RemoveContact_Click(object sender, EventArgs e)
         {
             DialogResult _dialogResult = MessageBox.Show("Вы действительно хотите удалить контакт?", "Remove Contact",
@@ -146,7 +155,6 @@ namespace ContactsAppUI
             }
         }
 
-       
         /// <summary>
         /// Открыть окно About
         /// </summary>
@@ -158,11 +166,9 @@ namespace ContactsAppUI
             About.ShowDialog();
         }
 
-        
-
         private void Exit_Click_1(object sender, EventArgs e)
         {
-         
+
             if (_isProjectChanged != true | ContactsList.Items.Count == 0)
                 this.Close();
         }
@@ -204,7 +210,46 @@ namespace ContactsAppUI
             }
             FillListView(ProjectManager.GetInstance().Project.Contact);
         }
+
+        /// <summary>
+        /// Свойство текстового поля поиска на изменние текста в нем
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Length == 1)
+                ((TextBox)sender).Text = ((TextBox)sender).Text.ToUpper();
+
+            ((TextBox)sender).Select(((TextBox)sender).Text.Length, 0);
+
+           _projectForFind.Contact = _projectForFind.SortContact(ProjectManager.GetInstance().Project.Contact, FindTextBox.Text);
+
+            FillListView(_projectForFind.Contact);
+        }
+        /// <summary>
+        /// Метод поиска индекса контакта в соответствии с контактом из поиска
+        /// </summary>
+        /// <param name="contacts">Список контактов</param>
+        /// <param name="findedContacts">Список контактов после поиска</param>
+        /// <returns>Индекс контакта в списке</returns>
+        private int GetContactIndex(List<Contact> contacts, List<Contact> findedContacts)
+        {
+            int index = 0;
+
+            foreach (var contact in contacts)
+            {
+                if (contact == findedContacts[ContactsList.SelectedIndices[0]])
+                {
+                    return index;
+                }
+
+                index++;
+            }
+
+            return -1;
+        }
     }
-    }
+}
 
 

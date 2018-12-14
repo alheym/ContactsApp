@@ -109,20 +109,20 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // exit
             // 
             this.exit.Name = "exit";
             this.exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exit.Size = new System.Drawing.Size(162, 26);
+            this.exit.Size = new System.Drawing.Size(216, 26);
             this.exit.Text = "Exit";
             this.exit.Click += new System.EventHandler(this.Exit_Click_1);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // edit
@@ -139,22 +139,22 @@
             // addContact
             // 
             this.addContact.Name = "addContact";
-            this.addContact.Size = new System.Drawing.Size(165, 26);
+            this.addContact.Size = new System.Drawing.Size(190, 26);
             this.addContact.Text = "Add Contact";
             this.addContact.Click += new System.EventHandler(this.addContact_Click);
             // 
             // EditContact
             // 
             this.EditContact.Name = "EditContact";
-            this.EditContact.Size = new System.Drawing.Size(165, 26);
+            this.EditContact.Size = new System.Drawing.Size(190, 26);
             this.EditContact.Text = "Edit Contact";
             this.EditContact.Click += new System.EventHandler(this.EditContact_Click);
             // 
             // removeContact
             // 
             this.removeContact.Name = "removeContact";
-            this.removeContact.Size = new System.Drawing.Size(165, 26);
-            this.removeContact.Text = "2";
+            this.removeContact.Size = new System.Drawing.Size(190, 26);
+            this.removeContact.Text = "Remove Contact";
             this.removeContact.Click += new System.EventHandler(this.RemoveContact_Click);
             // 
             // help
@@ -311,10 +311,11 @@
             // 
             this.FindTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FindTextBox.Location = new System.Drawing.Point(76, 13);
+            this.FindTextBox.Location = new System.Drawing.Point(64, 13);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(156, 29);
+            this.FindTextBox.Size = new System.Drawing.Size(183, 29);
             this.FindTextBox.TabIndex = 46;
+            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged_1);
             // 
             // Find
             // 
@@ -342,7 +343,7 @@
             // BirthdayDayTool
             // 
             this.BirthdayDayTool.Enabled = false;
-            this.BirthdayDayTool.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BirthdayDayTool.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthdayDayTool.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.BirthdayDayTool.Location = new System.Drawing.Point(95, 81);
             this.BirthdayDayTool.Margin = new System.Windows.Forms.Padding(4);

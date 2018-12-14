@@ -21,8 +21,9 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
-OutputDir=C:\Users\User\source\repos\ContactsApp\ContactsAppUI\install
+OutputDir=..\install
 OutputBaseFilename=setup
+SetupIconFile=..\supermono3d09.ico
 Compression=lzma
 SolidCompression=yes
 

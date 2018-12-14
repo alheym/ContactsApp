@@ -15,7 +15,7 @@ namespace ContactsApp
 
         public static ProjectManager GetInstance()
         {
-            if(_project == null)
+            if (_project == null)
             {
                 _project = new ProjectManager();
             }
@@ -24,9 +24,9 @@ namespace ContactsApp
 
         public void SaveFile()
         {
-            
+
             File.WriteAllText(
-                AppDomain.CurrentDomain.BaseDirectory + "\\project.json", 
+                AppDomain.CurrentDomain.BaseDirectory + "\\project.json",
                 Newtonsoft.Json.JsonConvert.SerializeObject(Project));
         }
 
@@ -34,21 +34,13 @@ namespace ContactsApp
 
         public void LoadFile()
         {
-            if(File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\project.json"))
+            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\project.json"))
             {
                 Project = JsonConvert.DeserializeObject<Project>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "project.json"));
             }
-       
+
         }
 
-        public static object LoadFile(Project project)
-        {
-            throw new NotImplementedException();
-        }
 
-        public static void SaveFile(Project project)
-        {
-            throw new NotImplementedException();
-        }
-    } 
+    }
 }

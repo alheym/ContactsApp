@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addEditContactsForm));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.VKTextBox = new System.Windows.Forms.TextBox();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.BirthdayDayTool = new System.Windows.Forms.DateTimePicker();
@@ -41,9 +44,6 @@
             this.BirthdayLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.SubnameLabebl = new System.Windows.Forms.Label();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.VKTextBox = new System.Windows.Forms.TextBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -67,8 +67,7 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.BirthdayLabel);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.NameLabel);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.SubnameLabebl);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(763, 315);
-        
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(763, 290);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -76,11 +75,53 @@
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // VKTextBox
+            // 
+            this.VKTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VKTextBox.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VKTextBox.Location = new System.Drawing.Point(153, 193);
+            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.VKTextBox.MinimumSize = new System.Drawing.Size(136, 30);
+            this.VKTextBox.Name = "VKTextBox";
+            this.VKTextBox.Size = new System.Drawing.Size(580, 30);
+            this.VKTextBox.TabIndex = 34;
+            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailTextBox.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailTextBox.Location = new System.Drawing.Point(153, 158);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.EmailTextBox.MinimumSize = new System.Drawing.Size(136, 30);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(580, 30);
+            this.EmailTextBox.TabIndex = 33;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
+            // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhoneTextBox.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneTextBox.Location = new System.Drawing.Point(153, 124);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PhoneTextBox.MinimumSize = new System.Drawing.Size(136, 30);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(580, 30);
+            this.PhoneTextBox.TabIndex = 32;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
+            // 
             // OKButton
             // 
             this.OKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.OKButton.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OKButton.Location = new System.Drawing.Point(499, 253);
+            this.OKButton.Location = new System.Drawing.Point(499, 228);
             this.OKButton.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(113, 49);
@@ -94,7 +135,7 @@
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(620, 253);
+            this.CancelButton.Location = new System.Drawing.Point(620, 228);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(113, 49);
@@ -106,7 +147,7 @@
             // 
             this.BirthdayDayTool.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthdayDayTool.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BirthdayDayTool.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthdayDayTool.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.BirthdayDayTool.Location = new System.Drawing.Point(154, 89);
             this.BirthdayDayTool.Margin = new System.Windows.Forms.Padding(4);
@@ -225,54 +266,11 @@
             this.SubnameLabebl.TabIndex = 21;
             this.SubnameLabebl.Text = "Surname:";
             // 
-            // PhoneTextBox
-            // 
-            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneTextBox.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(153, 124);
-            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.PhoneTextBox.MinimumSize = new System.Drawing.Size(136, 30);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(580, 30);
-            this.PhoneTextBox.TabIndex = 32;
-            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
-            // 
-            // EmailTextBox
-            // 
-            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailTextBox.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTextBox.Location = new System.Drawing.Point(153, 158);
-            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.EmailTextBox.MinimumSize = new System.Drawing.Size(136, 30);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(580, 30);
-            this.EmailTextBox.TabIndex = 33;
-            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
-            // 
-            // VKTextBox
-            // 
-            this.VKTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.VKTextBox.Font = new System.Drawing.Font("Tempus Sans ITC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VKTextBox.Location = new System.Drawing.Point(153, 193);
-            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.VKTextBox.MinimumSize = new System.Drawing.Size(136, 30);
-            this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(580, 30);
-            this.VKTextBox.TabIndex = 34;
-            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
-            // 
             // addEditContactsForm
             // 
             this.AcceptButton = this.OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(763, 315);
             this.Controls.Add(this.toolStripContainer1);
             this.HelpButton = true;
@@ -282,7 +280,6 @@
             this.MinimumSize = new System.Drawing.Size(740, 350);
             this.Name = "addEditContactsForm";
             this.Text = "Add/Edit Contact";
-          
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
