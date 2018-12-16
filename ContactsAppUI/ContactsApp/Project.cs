@@ -14,7 +14,7 @@ namespace ContactsApp
         /// <summary>
         /// Задается список контактов
         /// </summary>
-        public List<Contact> Contact = new List<Contact>();
+        public List<Contact> Contacts = new List<Contact>();
 
         /// <summary>
         /// Метод сортировки списка контактов в алфавитном порядке
@@ -54,6 +54,19 @@ namespace ContactsApp
                 }
             }
             return findedContacts;
+        }
+
+        public List<Contact> ShowBirthdayList(DateTime date)
+        {
+            List<Contact> birthdayContacts = new List<Contact>();
+            foreach (var contact in Contacts)
+            {
+                if (contact.Birhday.Day == date.Day && contact.Birhday.Month == date.Month)
+                {
+                    birthdayContacts.Add(contact);
+                }
+            }
+            return birthdayContacts;
         }
     }
 }

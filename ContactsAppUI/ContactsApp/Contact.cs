@@ -10,7 +10,7 @@ namespace ContactsApp
     /// Класс контакта, хранящий информацию о номере телефона, имени, фамилии,
     /// email и id vk пользователя.
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable
 
     {
         public PhoneNumber Number { get; set; } = new PhoneNumber();
@@ -96,11 +96,12 @@ namespace ContactsApp
             {
                 if (value > DateTime.Today)
                 {
-                    throw new ArgumentException("Дата не должна быть больше " + DateTime.Today.ToShortDateString() + ", а была " + value.Date.ToShortDateString());
+                    throw new ArgumentException("Дата не должна быть больше " + DateTime.Today.ToShortDateString() + 
+                                                    ", а была " + value.Date.ToShortDateString());
                 }
                 else
                     _birhday = value;
-            }
+            }   
         }
 
         /// <summary>

@@ -17,7 +17,6 @@ namespace ContactsApp.Tests
         [SetUp]
         public void InitContact()
         {
-
             _path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             //Первый контакт на проверку
             _firstContact.Name = "Name";
@@ -36,23 +35,23 @@ namespace ContactsApp.Tests
             _secondContact.VK = "id@meow";
 
         }
-           
-        ///// <summary>
-        ///// Позитивный тест десериализации
-        ///// </summary>
+
+        ///////// <summary>
+        ///////// Позитивный тест десериализации
+        ///////// </summary>
         //[Test(Description = "Тест десериализации")]
         //public void TestDeserialization()
         //{
-        //    ProjectManager.GetInstance().LoadFile();
+        //    //_contact = ProjectManager.GetInstance().LoadFile();
 
-        //    Assert.AreEqual(2, _contact.Contact.Count, "Кол-во контактов не совпадают");
-        //    Assert.AreEqual(_contact.Contact[0].Name, _firstContact.Name, "Метод десеариализует не правильную информацию(имя первого контакта)");
-        //    Assert.AreEqual(_contact.Contact[1].Surname, _secondContact.Surname, "Метод десериалузиет не правильную информацию(фамилия второго контакта)");
-        //    Assert.AreEqual(_contact.Contact[0].Number.Number, _firstContact.Number.Number, "Метод десериалузиет не правильную информацию(номер телефона первого контакта)");
-        //    Assert.AreEqual(_contact.Contact[1].Email, _secondContact.Email, "Метод десериалузиет не правильную информацию(почтовый ящик второго контакта)");
-        //    Assert.AreEqual(_contact.Contact[1].Birhday, _secondContact.Birhday, "Date incorrect!");
+        //    Assert.AreEqual(2, _contact.Contacts.Count, "Кол-во контактов не совпадают");
+        //    Assert.AreEqual(_contact.Contacts[0].Name, _firstContact.Name, "Метод десеариализует не правильную информацию(имя первого контакта)");
+        //    Assert.AreEqual(_contact.Contacts[1].Surname, _secondContact.Surname, "Метод десериалузиет не правильную информацию(фамилия второго контакта)");
+        //    Assert.AreEqual(_contact.Contacts[0].Number.Number, _firstContact.Number.Number, "Метод десериалузиет не правильную информацию(номер телефона первого контакта)");
+        //    Assert.AreEqual(_contact.Contacts[1].Email, _secondContact.Email, "Метод десериалузиет не правильную информацию(почтовый ящик второго контакта)");
+        //    Assert.AreEqual(_contact.Contacts[1].Birhday, _secondContact.Birhday, "Date incorrect!");
         //}
-   
+
 
         /// <summary>
         /// Позитивный тест сериализации

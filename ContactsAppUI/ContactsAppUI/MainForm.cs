@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ContactsAppUI
 {
-    public partial class MainContacts : Form
+    public partial class MainForm : Form
     {
         private bool _isProjectChanged = false;
 
@@ -30,12 +30,13 @@ namespace ContactsAppUI
         /// <summary>
         /// Загрузка данных при запуске программы
         /// </summary>
-        public MainContacts()
+        public MainForm()
         {
             InitializeComponent();
             
             ProjectManager.GetInstance().LoadFile();
-            FillListView(ProjectManager.GetInstance().Project.Contact);         
+            FillListView(ProjectManager.GetInstance().Project.Contacts);
+            CheckTodayBirthday();
         }
 
         /// <summary>
@@ -82,12 +83,14 @@ namespace ContactsAppUI
 
             if (ContactsList.SelectedIndices.Count != 0)
             {
-                SurnameTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Surname;
-                NameTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Name;
-                BirthdayDayTool.Value = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Birhday;
-                PhoneTextBox.Text = Convert.ToString(ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Number.Number);
-                EmailTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].Email;
-                VKTextBox.Text = ProjectManager.GetInstance().Project.Contact[ContactsList.SelectedIndices[0]].VK;
+                SurnameTextBox.Text = ProjectManager.GetInstance().Project.Contacts[ContactsList.SelectedIndices[0]].Surname;
+                NameTextBox.Text = ProjectManager.GetInstance().Project.Contacts[ContactsList.SelectedIndices[0]].Name;
+                BirthdayDayTool.Value = ProjectManager.GetInstance().Project.Contacts[ContactsList.SelectedIndices[0]].Birhday;
+                PhoneTextBox.Text = Convert.ToString(ProjectManager.GetInstance().Project.Contacts[ContactsList.SelectedIndices[0]].Number.Number);
+                EmailTextBox.Text = ProjectManager.GetInstance().Project.Contacts[ContactsList.SelectedIndices[0]].Email;
+                VKTextBox.Text = ProjectManager.GetInstance().Project.Contacts[ContactsList.SelectedIndices[0]].VK;
+                EditContactButton.Enabled = true;
+                RemoveContactButton.Enabled = true;
             }
             else
             {
@@ -97,6 +100,8 @@ namespace ContactsAppUI
                 PhoneTextBox.Text = string.Empty;
                 EmailTextBox.Text = string.Empty;
                 VKTextBox.Text = string.Empty;
+                EditContactButton.Enabled = false;
+                RemoveContactButton.Enabled = false;
             }
         }
 
@@ -110,7 +115,7 @@ namespace ContactsAppUI
             addEditContactsForm addContact = new addEditContactsForm();
             if (addContact.ShowDialog() == DialogResult.OK)
             {
-                ProjectManager.GetInstance().Project.Contact.Add(addContact.ContactData);
+                ProjectManager.GetInstance().Project.Contacts.Add(addContact.ContactData);
                 _isProjectChanged = true;
             }
 
@@ -125,12 +130,12 @@ namespace ContactsAppUI
         {
             int index = ContactsList.SelectedIndices[0];
             addEditContactsForm editContact = new addEditContactsForm();
-            editContact.ContactView(ProjectManager.GetInstance().Project.Contact[index]);
+            editContact.ContactView(ProjectManager.GetInstance().Project.Contacts[index]);
             if (editContact.ShowDialog() == DialogResult.OK)
             {
-                ProjectManager.GetInstance().Project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().Project.Contacts.RemoveAt(index);
                 ContactsList.Items[index].Remove();
-                ProjectManager.GetInstance().Project.Contact.Insert(index, editContact.ContactData);
+                ProjectManager.GetInstance().Project.Contacts.Insert(index, editContact.ContactData);
                 _isProjectChanged = true;
             }
 
@@ -148,11 +153,12 @@ namespace ContactsAppUI
             if (_dialogResult == DialogResult.Yes)
             {
                 int index = ContactsList.SelectedIndices[0];
-                ProjectManager.GetInstance().Project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().Project.Contacts.RemoveAt(index);
                 ProjectManager.GetInstance().SaveFile();
                 ContactsList.Items[index].Remove();
                 _isProjectChanged = true;
             }
+            CheckTodayBirthday();
         }
 
         /// <summary>
@@ -183,11 +189,12 @@ namespace ContactsAppUI
             addEditContactsForm addContact = new addEditContactsForm();
             if (addContact.ShowDialog() == DialogResult.OK)
             {
-                ProjectManager.GetInstance().Project.Contact.Add(addContact.ContactData);
+                ProjectManager.GetInstance().Project.Contacts.Add(addContact.ContactData);
                 ProjectManager.GetInstance().SaveFile();
                 _isProjectChanged = true;
             }
-            FillListView(ProjectManager.GetInstance().Project.Contact);
+            FillListView(ProjectManager.GetInstance().Project.Contacts);
+            CheckTodayBirthday();
         }
 
         /// <summary>
@@ -199,16 +206,17 @@ namespace ContactsAppUI
         {
             int index = ContactsList.SelectedIndices[0];
             addEditContactsForm editContact = new addEditContactsForm();
-            editContact.ContactView(ProjectManager.GetInstance().Project.Contact[index]);
+            editContact.ContactView(ProjectManager.GetInstance().Project.Contacts[index]);
             if (editContact.ShowDialog() == DialogResult.OK)
             {
-                ProjectManager.GetInstance().Project.Contact.RemoveAt(index);
+                ProjectManager.GetInstance().Project.Contacts.RemoveAt(index);
                 ContactsList.Items[index].Remove();
-                ProjectManager.GetInstance().Project.Contact.Insert(index, editContact.ContactData);
+                ProjectManager.GetInstance().Project.Contacts.Insert(index, editContact.ContactData);
                 _isProjectChanged = true;
                 ProjectManager.GetInstance().SaveFile();
             }
-            FillListView(ProjectManager.GetInstance().Project.Contact);
+            FillListView(ProjectManager.GetInstance().Project.Contacts);
+            CheckTodayBirthday();
         }
 
         /// <summary>
@@ -223,9 +231,9 @@ namespace ContactsAppUI
 
             ((TextBox)sender).Select(((TextBox)sender).Text.Length, 0);
 
-           _projectForFind.Contact = _projectForFind.SortContact(ProjectManager.GetInstance().Project.Contact, FindTextBox.Text);
+           _projectForFind.Contacts = _projectForFind.SortContact(ProjectManager.GetInstance().Project.Contacts, FindTextBox.Text);
 
-            FillListView(_projectForFind.Contact);
+            FillListView(_projectForFind.Contacts);
         }
         /// <summary>
         /// Метод поиска индекса контакта в соответствии с контактом из поиска
@@ -249,6 +257,28 @@ namespace ContactsAppUI
 
             return -1;
         }
+
+        ///// <summary>
+        ///// Метод вывода контаков, у которых сегодня день рожденья
+        ///// </summary>
+        private void CheckTodayBirthday()
+        {
+            BirthdayPanel.Visible = false;
+            BirthdayText.Visible = false;
+            BirthdayShowLabel.Text = String.Empty;
+            List<Contact> birthdayList = ProjectManager.GetInstance().Project.ShowBirthdayList(DateTime.Today);
+            if (birthdayList.Count != 0)
+            {
+                BirthdayPanel.Visible = true;
+                BirthdayText.Visible = true;
+                foreach (var contact in birthdayList)
+                {
+                    BirthdayShowLabel.Text += contact.Surname + " " + contact.Name + "; ";
+                }
+            }
+        }
+
+     
     }
 }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.Remoting.Channels;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,20 @@ namespace ContactsAppUI
         public addEditContactsForm()
         {
             InitializeComponent();
+           
         }
 
         private Contact _contact = new Contact();
         public Contact ContactData => _contact;
+
+        #region Флаги правильности ввода параметров
+        /// <summary>
+        /// Флаг верности ввода Даты
+        /// </summary>
+        private bool _checkDataResult;
+
+        #endregion
+
 
         /// <summary>
         /// Метод проверки правильности вводимых полей контакта
@@ -27,6 +38,9 @@ namespace ContactsAppUI
         /// <returns>true, если все поля введены правильно</returns>
         public bool CheckCorrectInput()
         {
+
+
+
             //TryCatch Surname
             try
             {
@@ -68,7 +82,6 @@ namespace ContactsAppUI
                 NameTextBox.Focus();
                 return false;
             }
-
 
 
             //TryCatch Birhday
@@ -154,6 +167,7 @@ namespace ContactsAppUI
 
             return true;
         }
+
 
         public void ContactView(Contact contact)
         {
@@ -244,8 +258,6 @@ namespace ContactsAppUI
 
         }
 
-
-
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             string text = EmailTextBox.Text;
@@ -269,6 +281,23 @@ namespace ContactsAppUI
             else
             {
                 VKTextBox.BackColor = Color.LightSalmon;
+            }
+        }
+
+        private void BirthdayDayTool_ValueChanged(object sender, EventArgs ex)
+        {
+            try
+            {
+                _contact.Birhday = BirthdayDayTool.Value;
+                BirthdayDayTool.BackColor = Color.White;
+                _checkDataResult = true;
+            }
+            catch (ArgumentException)
+            {
+                
+                BirthdayDayTool.BackColor = Color.LightSalmon;
+                BirthdayDayTool.Focus();
+                _checkDataResult = false;
             }
         }
     }
